@@ -1,0 +1,41 @@
+{
+  "jetson-orin-nano": {
+    "label": "NVIDIA Jetson Orin Nano",
+    "architecture": "aarch64",
+    "ubuntu": ["22.04", "24.04"],
+    "model_contains": "Jetson Orin Nano",
+    "evidence": "Physical casting, playback and sound tested on the 8 GB model with Ubuntu 22.04 and X11"
+  },
+  "mini-pc": {
+    "label": "Intel or AMD mini PC",
+    "architecture": "x86_64",
+    "ubuntu": ["22.04", "24.04"],
+    "evidence": "x86-64 archive verified and patched; physical playback untested"
+  },
+  "x86-pc": {
+    "label": "64-bit Intel or AMD PC",
+    "architecture": "x86_64",
+    "ubuntu": ["22.04", "24.04"],
+    "evidence": "x86-64 archive verified and patched; physical playback untested"
+  },
+  "raspberry-pi-4": {
+    "label": "Raspberry Pi 4 Model B",
+    "architecture": "aarch64",
+    "ubuntu": ["22.04", "24.04"],
+    "model_contains": "Raspberry Pi 4 Model B",
+    "evidence": "Experimental; playback and audio untested on this board"
+  },
+  "raspberry-pi-5": {
+    "label": "Raspberry Pi 5",
+    "architecture": "aarch64",
+    "ubuntu": ["24.04"],
+    "model_contains": "Raspberry Pi 5 Model B",
+    "evidence": "Experimental; startup, playback and audio untested on this board"
+  },
+  "generic-arm64": {
+    "label": "Other ARM64 computer",
+    "architecture": "aarch64",
+    "ubuntu": ["22.04", "24.04"],
+    "evidence": "Experimental; drivers, playback and audio depend on the hardware"
+  }
+}

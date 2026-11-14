@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="440" viewBox="0 0 1200 440" role="img" aria-label="JetsonCast. Your phone. Your TV. A better YouTube night.">
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#071923"/><stop offset="1" stop-color="#173c44"/></linearGradient><linearGradient id="light"><stop stop-color="#6cebc4"/><stop offset="1" stop-color="#8abef2"/></linearGradient></defs>
+<rect width="1200" height="440" rx="28" fill="url(#bg)"/>
+<g fill="none" stroke="#6cebc4" opacity=".09"><path d="M0 370Q400 0 800 260T1400 100" stroke-width="75"/><path d="M50 460Q420 60 850 300T1400 150" stroke-width="50"/></g>
+<text x="64" y="94" fill="#8de3cb" font-family="Arial,sans-serif" font-size="15" letter-spacing="4">A SECOND LIFE FOR YOUR TV</text>
+<path d="M65 112h78" stroke="#6cebc4" stroke-width="5" stroke-linecap="round"/>
+<text x="62" y="175" fill="#fff" font-family="Arial,sans-serif" font-weight="700" font-size="72">JetsonCast</text>
+<text x="65" y="228" fill="#d0e4e9" font-family="Arial,sans-serif" font-size="26">Your phone. Your TV. A better YouTube night.</text>
+<g stroke="#8de3cb" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="M70 267v30h17v-30zm13 13q15 0 15 15m-15-8q8 0 8 8"/>
+<path d="M288 265l14 5v12q0 12-14 19-14-7-14-19v-12zm-7 18 5 5 10-12"/>
+<rect x="467" y="269" width="31" height="23" rx="3"/><path d="M472 287l6-7 6 5 5-9 5 11m-21 11h20"/>
+</g>
+<text x="110" y="288" fill="#d0e4e9" font-family="Arial,sans-serif" font-size="19">Phone casting</text>
+<text x="316" y="288" fill="#d0e4e9" font-family="Arial,sans-serif" font-size="19">Ad blocking</text>
+<text x="513" y="288" fill="#d0e4e9" font-family="Arial,sans-serif" font-size="19">Ambient mode</text>
+<rect x="65" y="332" width="162" height="40" rx="20" fill="#6cebc4"/><text x="146" y="358" text-anchor="middle" fill="#102e34" font-family="Arial,sans-serif" font-weight="700" font-size="16">Built on Linux</text>
+<g transform="translate(845 106)"><rect width="275" height="174" rx="13" fill="#07151b" stroke="#8de3cb" stroke-width="3"/><path d="M12 137L65 72 110 112 160 42 263 137V162H12Z" fill="#254c59"/><path d="M12 140Q120 112 263 141V162H12Z" fill="#316b72"/><path d="M25 68Q110 5 245 40" fill="none" stroke="url(#light)" stroke-width="15" opacity=".7"/><path d="M35 80Q140 24 248 55" fill="none" stroke="#6cebc4" stroke-width="5" opacity=".45"/><path d="M115 174v25h45v-25M90 200h95" stroke="#8de3cb" stroke-width="3" fill="none"/><rect x="-27" y="108" width="51" height="90" rx="9" fill="#143139" stroke="#8de3cb" stroke-width="3"/><path d="M-8 138l15 9-15 9z" fill="#8de3cb"/><path d="M-17 172h30m-20 9v5m8-5v5" stroke="#8de3cb" stroke-width="2"/><circle cx="-5" cy="172" r="3" fill="#8de3cb"/></g>
+</svg>

@@ -1,0 +1,21 @@
+name: Checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  checks:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - run: python3 -m unittest discover -s tests -v
+      - run: node tests/test_ambient.cjs
+      - run: sh -n experiments/pi-lite/session.sh
+      - run: python3 scripts/privacy_check.py --history
+      - run: python3 install.py --dry-run --non-interactive

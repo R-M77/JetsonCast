@@ -1,0 +1,12 @@
+{
+  "tv_control_url": "http://192.0.2.10:7676/REPLACE_WITH_CONTROL_PATH",
+  "tv_udn": "REPLACE_WITH_TV_UDN",
+  "sources": {
+    "jetson": {"name": "REPLACE_WITH_SOURCE_NAME", "id": "REPLACE_WITH_SOURCE_ID"},
+    "chromecast": {"name": "REPLACE_WITH_SOURCE_NAME", "id": "REPLACE_WITH_SOURCE_ID"}
+  },
+  "chromecast": {
+    "host": "192.0.2.20",
+    "uuid": "REPLACE_WITH_CHROMECAST_UUID"
+  }
+}
