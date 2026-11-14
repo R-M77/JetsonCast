@@ -4,7 +4,9 @@
 | --- | --- | --- |
 | [Landscape demo](../assets/previews/demo-landscape.mp4) | 1920×1080, 27 s, H.264 | README, X, landscape posts |
 | [Vertical demo](../assets/previews/demo-vertical.mp4) | 1080×1920, 27 s, H.264 | Reels, Shorts, vertical posts |
-| [Animated preview](../assets/previews/demo.gif) | 960×540 GIF | Inline README preview |
+| [Compact banner](../assets/previews/banner.gif) | 840×360 GIF, 4.8 s, about 308 KiB | README; plays once, then holds; displayed at 560 px wide |
+| [Banner still](../assets/previews/banner-poster.png) | 840×360 PNG | Static alternative |
+| [Full animated preview](../assets/previews/demo.gif) | 960×540 GIF | Longer demo preview |
 | [Poster](../assets/previews/demo-poster.png) | 1920×1080 PNG | Link thumbnail |
 | [Jet loop](../assets/previews/jet.gif) | Animated GIF | Mascot close-up |
 
@@ -12,6 +14,17 @@ Both videos are captioned and silent. The phone flow is an illustration, not a
 recording of the YouTube app. Scenery is generated artwork; Jet uses the actual
 ambient animation. Demo visits and scene changes are accelerated. No personal
 account, desktop, device, or network footage is included.
+
+The compact banner uses the approved coast and meadow artwork, illustrated
+phone controls, and Jet's existing sprites. Its clock and overlay are composed
+for the demo, not recorded from a live TV. Fun mode is optional and off by
+default. The full videos remain available above.
+
+To regenerate the compact banner, install Pillow in your development environment
+and run `python scripts/render_banner.py --output build/banner`. The approved
+render uses Segoe UI (`segoeui.ttf` and `seguisb.ttf`); use `--font-dir` to point
+to your own licensed font directory. Fonts are not bundled. Review output before
+copying it into `assets/previews/`.
 
 ## A post you can adapt
 
