@@ -172,6 +172,8 @@ def check_managed_tree(base):
 
 
 def validate_settings(config):
+    if type(config.get('fun_mode', False)) is not bool:
+        raise ValueError('Fun mode must be true or false')
     if config.get('edition', 'standard') not in ('standard', 'lite'):
         raise ValueError('Unknown installation edition')
     name = config.get('name', '')
@@ -188,12 +190,22 @@ def validate_settings(config):
 
 def choose_settings(existing=None, interactive=True):
     config = dict(existing or {'name': 'Jetson Cast', 'rotation_seconds': 300, 'audio_sink': '', 'input_switch': False})
+    config.setdefault('fun_mode', False)
+    if config.get('edition') == 'lite':
+        config['fun_mode'] = False
     if not interactive:
         return validate_settings(config)
     config['name'] = input('Name shown on your phone [' + config['name'] + ']: ').strip() or config['name']
     minutes = '' if config.get('edition') == 'lite' else input('Change idle background every how many minutes [5]: ').strip()
     if minutes:
         config['rotation_seconds'] = int(minutes) * 60
+    if config.get('edition') != 'lite':
+        default = 'Y/n' if config['fun_mode'] else 'y/N'
+        choice = input('Fun mode: let Jet walk and peek into the screensaver? [' + default + ']: ').strip().lower()
+        if choice not in ('', 'y', 'yes', 'n', 'no'):
+            raise ValueError('Choose yes or no for fun mode')
+        if choice:
+            config['fun_mode'] = choice in ('y', 'yes')
     try:
         from audio import query
         sinks = query('sinks')

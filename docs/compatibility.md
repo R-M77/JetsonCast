@@ -38,11 +38,17 @@ Run these commands from the cloned repository:
 
 | Task | Command |
 | --- | --- |
-| Change name, TV audio or login startup | `python3 install.py configure` |
+| Change name, TV audio, fun mode or login startup | `python3 install.py configure` |
 | Check the host and installation | `python3 install.py doctor` |
 | List the device guides | `python3 install.py devices` |
 | Preview installation without downloading or writing files | `python3 install.py --dry-run --non-interactive` |
 | Remove the app and launchers, keeping the private profile and settings | `python3 install.py uninstall` |
+
+Fun mode is optional and off by default. Enable it during setup or configuration
+to add Jet's walks and Easter-egg peeks to the idle screensaver. Close and reopen
+the app after changing the setting. With fun mode off, the backgrounds, clock and
+casting still work, without loading Jet's animation artwork. Lite has no
+screensaver or fun mode.
 
 ## Missing desktop libraries
 

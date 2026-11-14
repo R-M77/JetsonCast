@@ -18,14 +18,14 @@ Got an old laptop or mini PC lying around? Plug it into your TV. Older TVs witho
 
 - **YouTube ad blocking** comes from VacuumTube. Optional SponsorBlock skips segments marked by its community. Ad blocking can change as YouTube changes.
 - **Cast from the YouTube app.** The computer plays the video on your TV. Use your phone to search, queue and control playback without mirroring your screen.
-- **Four animated screensavers** rotate when the receiver is idle, with the time, date and occasional visits from Jet the lynx.
+- **Four animated screensavers** rotate when the receiver is idle, with the time and date. Want some company? Optional **fun mode** adds Jet's walks and surprise peeks.
 
 ## Quick start
 
 Use a 64-bit Ubuntu desktop with Git and Python 3.10 or newer. Ubuntu 22.04 is the tested version. Connect the computer to your TV with HDMI or DisplayPort and put your phone on the same trusted network. [Check your device.](devices/README.md)
 
 1. Select the TV input for the computer and open a terminal on the Ubuntu desktop.
-2. Clone the repo and run setup. Choose a receiver name, the TV audio output and whether to start the app when you log in.
+2. Clone the repo and run setup. Choose a receiver name, the TV audio output, optional fun mode and whether to start the app when you log in.
 
    ```bash
    git clone --depth 1 https://github.com/R-M77/JetsonCast-clean.git JetsonCast
@@ -55,11 +55,11 @@ Ubuntu 24.04 startup and Wayland playback are unverified. [Full compatibility](d
 Already running Pi-hole? A capable Ubuntu computer can run both. VacuumTube handles YouTube ad blocking on the TV, and Pi-hole handles DNS filtering for your network. [Run both on one computer.](docs/pi-hole.md)
 
 <details>
-<summary><strong>See Jet in action</strong></summary>
+<summary><strong>Optional fun mode: see Jet in action</strong></summary>
 
 ![Jet walks, hops down and peeks in from the edges](assets/previews/jet.gif)
 
-Jet appears during idle time and disappears when playback starts. [Screensaver preview](assets/moonlit-meadow.gif)
+Fun mode is off by default. Enable it during setup or with `python3 install.py configure`, then close and reopen the app. Jet walks, hops down and peeks in from the edges while idle; he disappears when playback starts. Turn fun mode off for screensavers without the Easter eggs. [Screensaver preview](assets/moonlit-meadow.gif)
 
 </details>
 

@@ -17,6 +17,7 @@ def main():
     env['JETSON_CAST_HOME'] = str(base)
     env['JETSON_CAST_NAME'] = config['name']
     env['JETSON_CAST_ROTATION'] = str(config['rotation_seconds'])
+    env['JETSON_CAST_FUN_MODE'] = '1' if config.get('fun_mode') is True and config.get('edition') != 'lite' else '0'
     env['JETSON_CAST_INPUT_SWITCH'] = '1' if config.get('input_switch') and config.get('edition') != 'lite' else '0'
     env.pop('PULSE_SINK', None)
     # Upstream Steam game mode adds --no-sandbox; this desktop package must not.

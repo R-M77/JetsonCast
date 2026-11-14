@@ -7,6 +7,7 @@ module.exports = () => {
     const backgroundDir = path.join(process.env.JETSON_CAST_HOME, 'ambient');
     const rotationDelay = Math.max(30, Math.min(86400, Number(process.env.JETSON_CAST_ROTATION) || 300)) * 1000;
     const receiverName = process.env.JETSON_CAST_NAME || 'Jetson Cast';
+    const funMode = process.env.JETSON_CAST_FUN_MODE === '1';
     const idleDelay = 90000;
     let lastActivity = Date.now() - 75000;
     let overlay;
@@ -167,14 +168,16 @@ module.exports = () => {
         const copy = element('div', 'ja-copy');
         element('h1', 'ja-name', receiverName, copy);
         element('p', 'ja-instruction', 'Open YouTube on your phone · Tap Cast · Choose ' + receiverName, copy);
-        pet = element('div', 'ja-pet');
-        pet.hidden = true;
-        pet.setAttribute('aria-hidden', 'true');
-        const petBody = element('div', 'ja-pet-body', '', pet);
-        petOpen = element('img', 'ja-pet-open', '', petBody);
-        petBlink = element('img', 'ja-pet-blink', '', petBody);
-        petActions = element('div', 'ja-pet-actions', '', petBody);
-        petOpen.alt = ''; petBlink.alt = '';
+        if (funMode) {
+            pet = element('div', 'ja-pet');
+            pet.hidden = true;
+            pet.setAttribute('aria-hidden', 'true');
+            const petBody = element('div', 'ja-pet-body', '', pet);
+            petOpen = element('img', 'ja-pet-open', '', petBody);
+            petBlink = element('img', 'ja-pet-blink', '', petBody);
+            petActions = element('div', 'ja-pet-actions', '', petBody);
+            petOpen.alt = ''; petBlink.alt = '';
+        }
         document.body.appendChild(overlay);
         setInterval(() => {
             const videos = [...document.querySelectorAll('video')];
@@ -191,10 +194,10 @@ module.exports = () => {
             }
             if (!overlay.hidden) {
                 const elapsed = performance.now();
-                if (petUntil && elapsed >= petUntil) {
+                if (funMode && petUntil && elapsed >= petUntil) {
                     clearPet();
                     petNext = elapsed + 45000 + Math.random() * 30000;
-                } else if (!petUntil && elapsed >= petNext) {
+                } else if (funMode && !petUntil && elapsed >= petNext) {
                     // Load only during a visit. Missing mascot artwork never affects casting.
                     petNext = elapsed + 90000;
                     try {

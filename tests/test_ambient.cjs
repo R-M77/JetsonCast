@@ -2,6 +2,9 @@ const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
 const assert = require('node:assert/strict');
+const plain = process.argv.includes('--plain');
+const reads = [];
+if (!plain) require('child_process').execFileSync(process.execPath, [__filename, '--plain'], {stdio: 'inherit'});
 let now = 1000000;
 let tick;
 let randomValue = 0;
@@ -31,8 +34,9 @@ class Clock extends Date { constructor(...args) { super(...(args.length ? args :
 const sandbox = { process: { env: { JETSON_CAST_HOME: '/test-data', JETSON_CAST_NAME: 'Demo Cast', JETSON_CAST_ROTATION: '300' } }, module: { exports: {} }, window, document, Date: Clock, performance: { now: () => now },
   Math: Object.assign(Object.create(Math), {random: () => randomValue}),
   HTMLMediaElement: Media, console, setInterval: cb => { tick = cb; },
-  require: name => name === 'fs' ? { readFileSync: file => fs.readFileSync(path.join(__dirname, '../assets', path.basename(file))) } : require(name)
+  require: name => name === 'fs' ? { readFileSync: file => { reads.push(path.basename(file)); return fs.readFileSync(path.join(__dirname, '../assets', path.basename(file))); } } : require(name)
 };
+if (!plain) sandbox.process.env.JETSON_CAST_FUN_MODE = '1';
 vm.runInNewContext(fs.readFileSync(path.join(__dirname, '../src/ambient.js'), 'utf8'), sandbox);
 sandbox.module.exports();
 const overlay = nodes.find(n => n.id === 'jetson-ambient');
@@ -52,6 +56,16 @@ now += 1; await step(); assert.equal(overlay.dataset.background, 'aurora-lake');
 now += 300000; await step(); assert.equal(overlay.dataset.background, 'golden-coast');
 now += 300000; await step(); assert.equal(overlay.dataset.background, 'orbital-dawn');
 now += 300000; await step(); assert.equal(overlay.dataset.background, 'moonlit-meadow');
+if (plain) {
+  assert.equal(pet, undefined, 'default screensaver must not create a mascot');
+  assert.equal(reads.some(file => file.startsWith('jet-')), false, 'plain mode must not read mascot artwork');
+  assert.ok(nodes.find(n => n.className === 'ja-time').textContent);
+  events.play({target:video});
+  assert.equal(overlay.hidden, true); assert.equal(art().src, undefined);
+  video.paused = false; now += 600000; await step(); assert.equal(overlay.hidden, true);
+  console.log('PASS: default plain mode rotates scenes, shows clock, loads no Jet artwork, and dismisses for playback.');
+  return;
+}
 events.play({target:video}); assert.equal(overlay.hidden, true); assert.equal(art().src, undefined);
 video.paused = false; now += 600000; await step(); assert.equal(overlay.hidden, true);
 video.paused = true; now += 90000; await step(); assert.equal(overlay.hidden, false);

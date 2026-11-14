@@ -86,6 +86,33 @@ class SafetyTests(unittest.TestCase):
         for config in ({'name': 'bad\nname'}, {'name': 'ok', 'rotation_seconds': -1}, {'name': 'ok', 'audio_sink': 'bad\noutput'}):
             with self.assertRaises(ValueError): installer.validate_settings(config)
 
+    def test_fun_mode_is_opt_in_and_configurable(self):
+        self.assertFalse(installer.choose_settings(interactive=False)['fun_mode'])
+        self.assertFalse(installer.choose_settings({'name': 'TV'}, interactive=False)['fun_mode'])
+        for answer, expected in [('yes', True), ('no', False)]:
+            with patch('builtins.input', side_effect=['', '', answer, '']), patch('audio.query', return_value=[]):
+                config = installer.choose_settings({'name': 'TV', 'fun_mode': not expected})
+            self.assertIs(config['fun_mode'], expected)
+        with patch('builtins.input', side_effect=['', '', '', '']), patch('audio.query', return_value=[]):
+            self.assertTrue(installer.choose_settings({'name': 'TV', 'fun_mode': True})['fun_mode'])
+        self.assertFalse(installer.choose_settings({'name': 'TV', 'edition': 'lite', 'fun_mode': True}, False)['fun_mode'])
+        for invalid in ('false', 1, None):
+            with self.assertRaises(ValueError):
+                installer.validate_settings({'name': 'TV', 'fun_mode': invalid})
+
+    def test_launcher_passes_explicit_fun_mode_without_inheriting_it(self):
+        import launch
+        for config, expected in [({}, '0'), ({'fun_mode': True}, '1'),
+                                 ({'fun_mode': False}, '0'),
+                                 ({'fun_mode': True, 'edition': 'lite'}, '0')]:
+            settings = {'name': 'TV', 'rotation_seconds': 300, **config}
+            with patch.object(launch.Path, 'read_text', return_value=json.dumps(settings)), \
+                 patch.dict(launch.os.environ, {'JETSON_CAST_FUN_MODE': '1'}), \
+                 patch.object(launch.subprocess, 'Popen') as popen, \
+                 patch.object(launch.threading, 'Thread'), patch.object(launch.signal, 'signal'):
+                launch.main()
+            self.assertEqual(popen.call_args.kwargs['env']['JETSON_CAST_FUN_MODE'], expected)
+
     def test_privacy_guard(self):
         # Build fixtures without embedding a plausible secret or private address in Git.
         self.assertIn('access-token', privacy_check.text_findings('gh' + 'p_' + 'a' * 36))
