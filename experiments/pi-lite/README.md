@@ -35,7 +35,7 @@ Original Pi Zero/Zero W and 32-bit OS images cannot use the ARM64 runtime.
    is private, your Git client must already have repository access:
 
    ```bash
-   git clone --depth 1 --filter=blob:none --sparse https://github.com/R-M77/JetsonCast-clean.git JetsonCast
+   git clone --depth 1 --filter=blob:none --sparse https://github.com/R-M77/JetsonCast.git
    cd JetsonCast
    git sparse-checkout set src devices experiments/pi-lite docs
    python3 install.py --lite --dry-run --non-interactive

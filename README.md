@@ -28,7 +28,7 @@ Use a 64-bit Ubuntu desktop with Git and Python 3.10 or newer. Ubuntu 22.04 is t
 2. Clone the repo and run setup. Choose a receiver name, the TV audio output, optional fun mode and whether to start the app when you log in.
 
    ```bash
-   git clone --depth 1 https://github.com/R-M77/JetsonCast-clean.git JetsonCast
+   git clone --depth 1 https://github.com/R-M77/JetsonCast.git
    cd JetsonCast
    python3 install.py
    ```

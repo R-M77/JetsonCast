@@ -1,5 +1,9 @@
 # Security
 
+## Release status
+
+Public release is on hold. The verified VacuumTube 2.0.1 x86-64 archive bundles Electron 44.5.1. This version is affected by [GHSA-jr5w-w6x2-84p9](https://github.com/advisories/GHSA-jr5w-w6x2-84p9), concerning compromised TLS intermediate certificates. Electron 44.9.1 includes the fix on the 44.x line. Before release, update the runtime, verify both architecture downloads and test casting, audio and idle behavior with the updated build.
+
 ## Local network access
 
 VacuumTube's DIAL discovery lets other devices on the LAN find the receiver. The local discovery and launch interface does not require each device to authenticate, so run Jetson Cast on a trusted network and keep its ports off the public internet. Leave router port forwarding off. You can turn off **Device Discoverability** in VacuumTube settings to disable discovery.
