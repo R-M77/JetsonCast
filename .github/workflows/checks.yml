@@ -22,6 +22,8 @@ jobs:
       - name: Install and open pinned receiver on a virtual Linux display
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends xdotool
           python3 install.py --non-interactive
           xvfb-run -a bash -euo pipefail -c '
             "$HOME/.local/bin/jetson-cast" >"$RUNNER_TEMP/receiver.log" 2>&1 &
@@ -29,7 +31,7 @@ jobs:
             trap "kill $receiver 2>/dev/null || true" EXIT
             for attempt in {1..60}; do
               kill -0 "$receiver"
-              if xwininfo -root -tree | grep -Ei "\(\"(vacuumtube|jetson cast)\" \"(VacuumTube|vacuumtube)\"\)" >/dev/null; then
+              if xdotool search --onlyvisible --class "[Vv]acuum[Tt]ube" >/dev/null; then
                 echo "Receiver window opened through the installed launcher"
                 exit 0
               fi
