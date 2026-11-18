@@ -26,7 +26,7 @@ spec.loader.exec_module(installer)
 def upstream_fixture():
     # Small synthetic layout; the pinned release is checked separately before shipping.
     return asar.pack({
-        'package.json': (b'{"version":"2.0.1"}', False),
+        'package.json': (b'{"version":"2.1.1"}', False),
         'src/index.js': (b'await electron.app.whenReady()\n    // Ensure the *content* area', False),
         'src/preload/modules/h5vcc/dial/server.js':
             (b"el('friendlyName', `${constants.hostname} (VacuumTube)`)", False),

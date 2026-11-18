@@ -110,9 +110,9 @@ Use a more capable host for Pi-hole alongside playback until shared load is test
 
 ## Sources
 
-[VacuumTube 2.0.1 configuration](https://github.com/shy1132/VacuumTube/blob/v2.0.1/src/config.js)
-· [Low-memory implementation](https://github.com/shy1132/VacuumTube/blob/v2.0.1/src/preload/modules/low-memory-mode.js)
-· [DIAL implementation](https://github.com/shy1132/VacuumTube/tree/v2.0.1/src/preload/modules/h5vcc)
+[VacuumTube 2.1.1 configuration](https://github.com/shy1132/VacuumTube/blob/v2.1.1/src/config.js)
+· [Low-memory implementation](https://github.com/shy1132/VacuumTube/blob/v2.1.1/src/preload/modules/low-memory-mode.js)
+· [DIAL implementation](https://github.com/shy1132/VacuumTube/tree/v2.1.1/src/preload/modules/h5vcc)
 · [Raspberry Pi OS](https://www.raspberrypi.com/documentation/computers/os.html)
 · [Security limits](../../SECURITY.md)
 

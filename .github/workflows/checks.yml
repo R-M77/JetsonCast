@@ -19,3 +19,22 @@ jobs:
       - run: sh -n experiments/pi-lite/session.sh
       - run: python3 scripts/privacy_check.py --history
       - run: python3 install.py --dry-run --non-interactive
+      - name: Install and open pinned receiver on a virtual Linux display
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          python3 install.py --non-interactive
+          xvfb-run -a bash -euo pipefail -c '
+            "$HOME/.local/bin/jetson-cast" >"$RUNNER_TEMP/receiver.log" 2>&1 &
+            receiver=$!
+            trap "kill $receiver 2>/dev/null || true" EXIT
+            for attempt in {1..60}; do
+              kill -0 "$receiver"
+              if xwininfo -root -tree | grep -Ei "\(\"(vacuumtube|jetson cast)\" \"(VacuumTube|vacuumtube)\"\)" >/dev/null; then
+                echo "Receiver window opened through the installed launcher"
+                exit 0
+              fi
+              sleep 1
+            done
+            exit 1
+          '
+          python3 install.py uninstall --yes

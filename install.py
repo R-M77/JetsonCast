@@ -18,10 +18,10 @@ SOURCE = Path(__file__).resolve().parent
 sys.path.insert(0, str(SOURCE / 'src'))
 from lite import asset_names, player_defaults, select_lite
 VERSION = '0.1.0'
-UPSTREAM = '2.0.1'
+UPSTREAM = '2.1.1'
 RELEASES = {
-    'aarch64': ('arm64', '70e2489592ecb2dfe9b334fe6a7a496e9d712627f417506f59e3a88477320e6a'),
-    'x86_64': ('x64', '21a6ffb350d0464bcf4452c2a56c59dda4e1062b1fc057f151b9762aa2a117e9'),
+    'aarch64': ('arm64', '1859d555c4f0d2e7a610e9803b5a10dc451ac8a36ac678fd9ebc7c4f4fb3bc51'),
+    'x86_64': ('x64', 'b1eb32589e33641defa39b06faaa908cc7b2f87ac149b8f343e4857dadd5dae4'),
 }
 MARKER = 'jetson-cast-managed-v1'
 DEVICE_PROFILES = json.loads((SOURCE / 'devices/profiles.json').read_text(encoding='utf-8'))

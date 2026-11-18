@@ -17,7 +17,7 @@ Raspberry Pi OS and Ubuntu 26.04 are outside the current installer targets.
 
 1. Use the Pi-specific Ubuntu 24.04 LTS Desktop ARM64 image and a Pi 5 with at least 4 GB of RAM. Ubuntu's [board support matrix](https://ubuntu.com/hardware/docs/boards/how-to/ubuntu_supported/raspberry-pi/#supported-models) does not list 22.04 for the Pi 5. A generic ARM image or 32-bit Raspberry Pi OS is outside this setup path.
 2. Connect micro-HDMI to your TV. Start with one display and check both picture and audio in Ubuntu. Use the board's recommended power supply and cooling.
-3. From the checkout, run `python3 install.py --device raspberry-pi-5`. Then [launch and cast](../README.md#set-up-the-computer-connected-to-your-tv). Start with 720p and verify fullscreen, sound and return to idle before increasing quality. Do not assume hardware decoding or 4K playback.
+3. From the checkout, run `python3 install.py --device raspberry-pi-5`. Then [launch and cast](../README.md#quick-start). Start with 720p and verify fullscreen, sound and return to idle before increasing quality. Do not assume hardware decoding or 4K playback.
 
 Preview without installing: `python3 install.py --device raspberry-pi-5 --dry-run --non-interactive`.
 If Electron is blocked by the sandbox policy, stop at the compatibility guide;

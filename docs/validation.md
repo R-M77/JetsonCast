@@ -1,7 +1,9 @@
 # Validation and hardware evidence
 
-The setup layer is an early release, not a certification for every computer,
-phone, TV, adapter or network.
+The 2.1.1 candidate uses Electron 45.3.2 in both verified Linux archives.
+The original on-TV results below were collected with VacuumTube 2.0.1.
+Phone casting, HDMI audio, idle rotation and playback dismissal on a physical TV
+still need confirmation with 2.1.1.
 
 - The initial Ubuntu 22.04 ARM64 checks covered archive traversal, special
   permissions, symlinks, hardlinks, ownership markers, ASAR integrity,
@@ -16,10 +18,9 @@ phone, TV, adapter or network.
   if decoding fails, and discards late results after playback starts. Clock
   text is updated only when its displayed value changes. These checks prevent
   specific redraw/transition problems; physical display flicker needs TV testing.
-- A disposable ARM64 installation successfully downloads, verifies, extracts
-  and patches the pinned upstream release, creates the launchers, uninstalls
-  without deleting unrelated files, preserves the profile, and reinstalls.
-- The installed ARM64 Electron runtime starts in an isolated X11 virtual
+- Earlier ARM64 testing covered downloading, verification, extraction, patching,
+  launcher creation, uninstall, profile retention and reinstall.
+- The earlier installed ARM64 Electron runtime started in an isolated X11 virtual
   display with discovery disabled; no global sandbox-disabling flag is used.
 - The x86-64 upstream archive passes digest verification, safe extraction and
   patching. The repacked ASAR is readable by the independent Electron ASAR

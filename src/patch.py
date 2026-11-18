@@ -6,7 +6,7 @@ from asar import read, pack
 
 def customize(archive, module_dir, lite=False):
     files = read(archive)
-    if json.loads(files['package.json'][0])['version'] != '2.0.1':
+    if json.loads(files['package.json'][0])['version'] != '2.1.1':
         raise ValueError('Unsupported VacuumTube version; refusing to patch')
 
     def replace(name, old, new):

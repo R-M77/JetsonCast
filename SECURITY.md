@@ -2,17 +2,17 @@
 
 ## Release status
 
-Public release is on hold. The verified VacuumTube 2.0.1 x86-64 archive bundles Electron 44.5.1. This version is affected by [GHSA-jr5w-w6x2-84p9](https://github.com/advisories/GHSA-jr5w-w6x2-84p9), concerning compromised TLS intermediate certificates. Electron 44.9.1 includes the fix on the 44.x line. Before release, update the runtime, verify both architecture downloads and test casting, audio and idle behavior with the updated build.
+The pinned VacuumTube 2.1.1 Linux ARM64 and x86-64 downloads contain Electron 45.3.2. This includes the fix for [GHSA-jr5w-w6x2-84p9](https://github.com/advisories/GHSA-jr5w-w6x2-84p9). Earlier JetsonCast installations using VacuumTube 2.0.1 need the [runtime upgrade](docs/compatibility.md#upgrade-an-existing-installation). See the [validation record](docs/validation.md) for the hardware checks completed on each version.
 
 ## Local network access
 
 VacuumTube's DIAL discovery lets other devices on the LAN find the receiver. The local discovery and launch interface does not require each device to authenticate, so run Jetson Cast on a trusted network and keep its ports off the public internet. Leave router port forwarding off. You can turn off **Device Discoverability** in VacuumTube settings to disable discovery.
 
-VacuumTube uses Electron to load YouTube and can contact third-party services for optional features such as SponsorBlock. The installer downloads a pinned upstream release and checks its SHA-256 digest before installing it. Security still depends on upstream code, the local operating system, and the services the application contacts. [VacuumTube settings](https://github.com/shy1132/VacuumTube/blob/v2.0.1/README.md#settings)
+VacuumTube uses Electron to load YouTube and can contact third-party services for optional features such as SponsorBlock. The installer downloads a pinned upstream release and checks its SHA-256 digest before installing it. Security still depends on upstream code, the local operating system, and the services the application contacts. [VacuumTube settings](https://github.com/shy1132/VacuumTube/blob/v2.1.1/README.md#settings)
 
 Jetson Cast uses a dedicated local app profile. Treat its cookies, settings, and any optional TV helper configuration as private. Keep credentials and device configuration local, and redact them from diagnostics, recordings, and issue reports.
 
-VacuumTube 2.0.1's renderer uses `sandbox: false` and `contextIsolation: false`
+VacuumTube 2.1.1's renderer uses `sandbox: false` and `contextIsolation: false`
 for its privileged YouTube integrations. This package preserves that upstream
 architecture; it does not provide browser-grade isolation from the web content
 it loads. The launcher does not add a global `--no-sandbox` flag and excludes

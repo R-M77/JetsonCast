@@ -20,7 +20,7 @@ its enclosure. [Raspberry Pi hardware reference](https://www.raspberrypi.com/doc
 
 1. Use a 64-bit Ubuntu Desktop image for the Pi 4 Model B. Canonical lists desktop support for 22.04 on boards with at least 2 GB of RAM and for 24.04 with at least 4 GB. These are [Ubuntu's desktop minimums](https://ubuntu.com/hardware/docs/boards/how-to/ubuntu_supported/raspberry-pi/#supported-models), not Jetson Cast performance targets. Ubuntu 24.04 may [block portable Electron](../../docs/compatibility.md#electron-sandbox-startup).
 2. Connect micro-HDMI to the TV, select the input, and verify that Ubuntu displays and sends sound to the TV. Use the board's recommended power supply.
-3. From the checkout, run `python3 install.py --device raspberry-pi-4`. Then [launch and cast](../README.md#set-up-the-computer-connected-to-your-tv). Test short videos at 720p before trying 1080p. Check idle and resumed playback as well as sound; hardware decoding is unverified.
+3. From the checkout, run `python3 install.py --device raspberry-pi-4`. Then [launch and cast](../README.md#quick-start). Test short videos at 720p before trying 1080p. Check idle and resumed playback as well as sound; hardware decoding is unverified.
 
 Preview without installing: `python3 install.py --device raspberry-pi-4 --dry-run --non-interactive`.
 Raspberry Pi OS is not supported by the current installer, even when it is 64-bit.

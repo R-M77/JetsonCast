@@ -43,7 +43,7 @@ No Jetson required.
 
 | Device | Status | Setup |
 | --- | --- | --- |
-| Jetson Orin Nano 8GB | Developed and tested here: casting, fullscreen video and TV audio | [Jetson](devices/jetson-orin-nano/) |
+| Jetson Orin Nano 8GB | Casting, fullscreen video and TV audio verified on the earlier 2.0.1 build | [Jetson](devices/jetson-orin-nano/) |
 | Intel / AMD mini PC | x86-64 build verified; TV playback untested | [Mini PC](devices/mini-pc/) |
 | Old laptop or desktop | x86-64 build verified; TV playback untested | [PC](devices/x86-pc/) |
 | Raspberry Pi 4 | Experimental; 2GB+ on Ubuntu 22.04, 4GB+ on 24.04 | [Pi 4](devices/raspberry-pi-4/) |

@@ -32,6 +32,13 @@ See the [device guides](../devices/) for display connections, board-specific Ubu
 
 Open an on-screen terminal for interactive setup. For remote provisioning, `python3 install.py --non-interactive` uses the default settings; launch the receiver later from the graphical desktop. Optional login autostart launches the receiver after a graphical sign-in. The installer runs without administrator rights. It leaves system sign-in, router, DNS and firewall settings alone.
 
+## Upgrade an existing installation
+
+Close the receiver, update your checkout with `git pull --ff-only`, then run
+`python3 install.py uninstall` followed by `python3 install.py`. The managed
+uninstaller keeps your profile and settings. Select the desired login startup
+option during installation. For Lite, pass `--lite` to both installer commands.
+
 ## Manage your installation
 
 Run these commands from the cloned repository:
@@ -65,7 +72,7 @@ Use the package for your native architecture: `amd64` on Intel/AMD or `arm64` on
 
 ## Casting and HDMI inputs
 
-The YouTube app discovers Jetson Cast using VacuumTube's DIAL support. The Linux computer plays the video and the phone controls it. This is an unofficial receiver for YouTube. Prime Video, Netflix, Plex, other Google Cast apps, and screen mirroring are outside its scope. [VacuumTube discovery settings](https://github.com/shy1132/VacuumTube/blob/v2.0.1/README.md#settings)
+The YouTube app discovers Jetson Cast using VacuumTube's DIAL support. The Linux computer plays the video and the phone controls it. This is an unofficial receiver for YouTube. Prime Video, Netflix, Plex, other Google Cast apps, and screen mirroring are outside its scope. [VacuumTube discovery settings](https://github.com/shy1132/VacuumTube/blob/v2.1.1/README.md#settings)
 
 An existing Chromecast can continue to handle its supported apps on a separate TV input. Use the TV's input selector to return to the Linux computer. A separately configured, experimental helper can switch back to the Jetson Cast input on certain older Samsung TVs. Model, firmware, and network behavior determine whether it works. Use the YouTube app for playback controls. TV remote play and pause over HDMI-CEC are unverified.
 
@@ -83,7 +90,7 @@ Keep the TV powered and on the expected input when testing cold boots.
 
 ## Ads and optional DNS filtering
 
-VacuumTube provides YouTube ad blocking. Its effectiveness can change as YouTube changes. SponsorBlock is a separate, optional feature based on community submissions. [VacuumTube settings](https://github.com/shy1132/VacuumTube/blob/v2.0.1/README.md#settings)
+VacuumTube provides YouTube ad blocking. Its effectiveness can change as YouTube changes. SponsorBlock is a separate, optional feature based on community submissions. [VacuumTube settings](https://github.com/shy1132/VacuumTube/blob/v2.1.1/README.md#settings)
 
 Pi-hole is a separate optional service. It filters by domain, so when an ad and the video use the same domain, as can happen with YouTube or Prime Video, DNS filtering cannot reliably remove just the ad. [Pi-hole documentation](https://docs.pi-hole.net/) · [Pi-hole discussion of same-domain YouTube ads](https://discourse.pi-hole.net/t/pihole-as-a-server-and-is-not-stopping-youtube-ads/74590)
 
