@@ -8,9 +8,9 @@ Got an old laptop or mini PC lying around? Plug it into your TV. Older TVs witho
 
 [Quick start](#quick-start) · [Device guides](devices/README.md) · [Demo kit](docs/media.md) · [Developers](docs/developers.md)
 
-<a href="assets/previews/demo-landscape.mp4"><img src="assets/previews/banner.gif" width="560" alt="Watch the JetsonCast demo: YouTube ad blocking, upgrading an old TV with a Linux PC, phone controls and optional Jet fun mode"></a>
+<a href="https://r-m77.github.io/R-M77/?play=jetson"><img src="assets/previews/banner.gif" width="560" alt="Watch the JetsonCast demo: YouTube ad blocking, upgrading an old TV with a Linux PC, phone controls and optional Jet fun mode"></a>
 
-**[Watch the 27-second demo](assets/previews/demo-landscape.mp4)** · [Vertical version](assets/previews/demo-vertical.mp4)
+**[Watch the 27-second demo](https://r-m77.github.io/R-M77/?play=jetson)** · [Vertical version](https://r-m77.github.io/R-M77/?play=vertical)
 
 <sub>Illustrated phone controls · Actual screensaver artwork · Jet is optional</sub>
 
