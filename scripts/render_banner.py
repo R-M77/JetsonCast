@@ -117,7 +117,7 @@ palette_sheet=Image.new('RGB',(W,H*3))
 for i,n in enumerate((0,40,95)): palette_sheet.paste(frames[n],(0,H*i))
 palette=palette_sheet.quantize(colors=240,method=Image.Quantize.MEDIANCUT)
 indexed=[f.quantize(palette=palette,dither=Image.Dither.NONE) for f in frames]
-indexed[0].save(OUT/'banner.gif',save_all=True,append_images=indexed[1:],duration=50,optimize=True,disposal=1)
+indexed[0].save(OUT/'banner.gif',save_all=True,append_images=indexed[1:],duration=50,loop=0,optimize=True,disposal=1)
 frames[95].save(OUT/'banner-poster.png')
 for n in (0,40,95): frames[n].save(OUT/f'beat-{n:02}.png')
 palette_sheet.save(OUT/'storyboard.png')

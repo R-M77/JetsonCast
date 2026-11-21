@@ -4,7 +4,7 @@
 | --- | --- | --- |
 | [Landscape demo](https://r-m77.github.io/R-M77/?play=jetson) | 1920×1080, 27 s, H.264 | README, X, landscape posts |
 | [Vertical demo](https://r-m77.github.io/R-M77/?play=vertical) | 1080×1920, 27 s, H.264 | Reels, Shorts, vertical posts |
-| [Compact banner](../assets/previews/banner.gif) | 840×360 GIF, 4.8 s, about 308 KiB | README; plays once, then holds; displayed at 560 px wide |
+| [Compact banner](../assets/previews/banner.gif) | 840×360 GIF, 4.8 s, about 308 KiB | README; loops every 4.8 seconds; displayed at 560 px wide |
 | [Banner still](../assets/previews/banner-poster.png) | 840×360 PNG | Static alternative |
 | [Full animated preview](../assets/previews/demo.gif) | 960×540 GIF | Longer demo preview |
 | [Poster](../assets/previews/demo-poster.png) | 1920×1080 PNG | Link thumbnail |
